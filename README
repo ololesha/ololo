@@ -1,0 +1,5 @@
+Простая качалка урла. Качает урл и не падает.
+Время исполнения - 1 день.
+Как собрать : "mkdir build && cd build && cmake .. && make"
+Как запускать : "./wget_clone http://mp3passion.net/uploads/posts/thumbs/1219325361_1219325927_1unwj32wxl.jpg"
+
