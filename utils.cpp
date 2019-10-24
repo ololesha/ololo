@@ -17,14 +17,14 @@ std::optional<ParsedUrl> parse_url(std::string_view url) {
   ParsedUrl result;
 
   if (url.empty()) {
-    // LogError("Invalid args : empty url");
+    LogError("Invalid args : empty url");
     return std::nullopt;
   }
 
   const std::string http_prefix = "http://";
 
   if (url.find(http_prefix) != 0) {
-    // LogError("can't parse url");
+    LogError("can't parse url");
     return std::nullopt;
   }
 
@@ -35,7 +35,7 @@ std::optional<ParsedUrl> parse_url(std::string_view url) {
     auto address = url.substr(0, colon_iter);
 
     if (address.empty()) {
-      // LogError("can't parse url");
+      LogError("can't parse url");
       return std::nullopt;
     }
 
@@ -46,12 +46,12 @@ std::optional<ParsedUrl> parse_url(std::string_view url) {
     try {
       port = std::stoul(std::string(url), 0, 10);
     } catch (...) {
-      // LogError("can't parse url");
+      LogError("can't parse url");
       return std::nullopt;
     }
 
     if (port > UINT16_MAX) {
-      // LogError("can't parse url");
+      LogError("can't parse url");
       return std::nullopt;
     }
 
